@@ -1,0 +1,12 @@
+{
+  "name": "api-task-crud",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "API Node.js para gerenciamento de tarefas com funcionalidades CRUD e importação em massa via CSV",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "author": "Leonardo Anders",
+  "license": "MIT"
+}
