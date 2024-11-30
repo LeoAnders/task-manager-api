@@ -37,6 +37,39 @@ export const routes = [
     },
   },
   {
+    method: 'PUT',
+    path: buildRoutePath("/tasks/:id"),
+    handler: (req, res) => {
+      const { id } = req.params
+      const { title, description } = req.body;
+
+      if (!title && !description) {
+        return res.writeHead(400).end(JSON.stringify({
+          error: "Envie pelo menos 'title' ou 'description'."
+        }));
+      }
+
+      if (title && description) {
+        return res.writeHead(400).end(JSON.stringify({
+          error: "Envie somente 'title' ou 'description', mas não ambos."
+        }));
+      }
+
+      const updates = {};
+      if (title) updates.title = title;
+      if (description) updates.description = description;
+
+      try {
+        database.update('tasks', id, updates);
+        return res.writeHead(204).end();
+      } catch (error) {
+        return res.writeHead(404).end(JSON.stringify({
+          error: error.message
+        }));
+      }
+    }
+  },
+  {
     method: "DELETE",
     path: buildRoutePath("/tasks/:id"),
     handler: (req, res) => {
