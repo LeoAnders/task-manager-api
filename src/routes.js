@@ -70,6 +70,36 @@ export const routes = [
     }
   },
   {
+    method: 'PATCH',
+    path: buildRoutePath('/tasks/:id/complete'),
+    handler: (req, res) => {
+      const { id } = req.params;
+
+      const tasks = database.select('tasks');
+      const task = tasks.find(task => task.id === id);
+
+      if (!task) {
+        return res.writeHead(404).end(JSON.stringify({
+          error: "Task não encontrada."
+        }));
+      }
+
+      const updates = {
+        completed_at: task.completed_at ? null : new Date(),
+        updated_at: new Date()
+      };
+
+      try {
+        database.update('tasks', id, updates);
+        return res.writeHead(204).end();
+      } catch (error) {
+        return res.writeHead(500).end(JSON.stringify({
+          error: "Erro ao atualizar a task."
+        }));
+      }
+    }
+  },
+  {
     method: "DELETE",
     path: buildRoutePath("/tasks/:id"),
     handler: (req, res) => {
