@@ -8,5 +8,8 @@
     "dev": "node --watch src/server.js"
   },
   "author": "Leonardo Anders",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "csv-parse": "^5.6.0"
+  }
 }
