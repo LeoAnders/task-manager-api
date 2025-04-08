@@ -1,8 +1,8 @@
-# Task Manager API 📋
+# Task Manager API
 
 Uma API para gerenciamento de tarefas com funcionalidades de CRUD e importação em massa por arquivo CSV.  
 
-## Funcionalidades ✨
+## Funcionalidades
 
 A API permite realizar operações CRUD em tarefas, além de importar tarefas em massa por meio de um arquivo CSV. As funcionalidades incluem:
 
@@ -14,7 +14,7 @@ A API permite realizar operações CRUD em tarefas, além de importar tarefas em
 
 ---
 
-## Estrutura da Task 🛠️ 
+## Estrutura da Task
 
 Cada task possui os seguintes campos:
 
@@ -27,10 +27,9 @@ Cada task possui os seguintes campos:
 
 ---
 
-## Rotas da API 🚀
+## Rotas da API
 
-### `POST - /tasks`
-
+`POST - /tasks`
 - Cria uma nova tarefa.
 - Campos no `body` da requisição:
   - `title` (obrigatório)
@@ -39,40 +38,36 @@ Cada task possui os seguintes campos:
 
 ---
 
-### `GET - /tasks`
-
+`GET - /tasks`
 - Retorna a lista de todas as tarefas.
 - Suporte a busca com filtros:
   - `title`
   - `description`
 
 ---
-
-### `PUT - /tasks/:id`
-
+`PUT - /tasks/:id`
 - Atualiza uma tarefa pelo seu `id`.
-- Campos no `body` da requisição:
+- Campos no `
+- body` da requisição:
   - `title` (opcional)
   - `description` (opcional)
 - Valida se o `id` existe antes de atualizar.
 
 ---
 
-### `DELETE - /tasks/:id`
-
+`DELETE - /tasks/:id`
 - Remove uma tarefa pelo seu `id`.
 - Valida se o `id` existe antes de remover.
 
 ---
 
-### `PATCH - /tasks/:id/complete`
-
+`PATCH - /tasks/:id/complete`
 - Marca uma tarefa como completa ou reverte para incompleta.
 - Valida se o `id` existe antes de atualizar.
 
 ---
 
-## Importação de Tasks em Massa 📂 
+## Importação de Tasks em Massa
 
 A importação em massa utiliza arquivos CSV com o seguinte formato:
 
